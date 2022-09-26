@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Project extends Model
 {
-    use HasFactory, Searchable;
+    use HasFactory, Searchable, SoftDeletes;
 
     /* protected $fillable = ['title', 'url', 'description']; */
     protected $guarded = [];
@@ -23,5 +25,9 @@ class Project extends Model
           'title' => $this->title,
           'description' => $this->description,
         ];
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
     }
 }

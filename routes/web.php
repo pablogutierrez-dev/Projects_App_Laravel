@@ -1,10 +1,12 @@
 <?php
 
 use App\Models\Project;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\CategoryController;
 
 
 /* EJEMPLOS */
@@ -66,6 +68,10 @@ Route::view('/contact', 'contact')->name('contact'); */
 
 Route::view('/portfolio', 'portfolio', compact('portfolio'))->name('portfolio'); */
 
+/* DB::listen(function($query) {
+    var_dump($query->sql);
+}); */
+
 Route::view('/', 'home')->name('home');
 Route::view('/about', 'about')->name('about');
 
@@ -80,6 +86,12 @@ Route::delete('/portfolio/{project}', [ProjectController::class, 'destroy'])->na
 Route::resource('portfolio', ProjectController::class)
     ->names('projects')
     ->parameters(['portfolio' => 'project']);
+
+Route::patch('portfolio/{project}/restore', [ProjectController::class, 'restore'])->name('projects.restore');   
+
+Route::delete('portfolio/{project}/force-delete', [ProjectController::class, 'forceDelete'])->name('projects.force-delete');  
+
+Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 Route::view('/contact', 'contact')->name('contact');
 Route::post('/contact', [MessageController::class, 'store'])->name('messages.store');
