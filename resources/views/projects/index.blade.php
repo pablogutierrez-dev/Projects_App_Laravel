@@ -22,7 +22,7 @@
     <p class="clead text-secondary">
         Una vez registrado e iniciado sesion, aqui podras ir añadiendo tus proyectos. Se iran acumulando en esta lista y desde aqui podras acceder a todos ellos para editarlos o eliminarlos.
     </p>
-    <form method="GET" class="row row-cols-lg-auto g-2 mb-3">
+    {{-- <form method="GET" class="row row-cols-lg-auto g-2 mb-3">
         @csrf
         <div class="col">
             <input type="text" class="form-control" name="term" value="" placeholder="Buscar...">
@@ -31,7 +31,7 @@
             <button class="btn btn-primary text-white me-4">Buscar</button>
             <a href="{{ route('projects.index') }}" class="btn btn-primary text-white">Volver a la lista</a>
         </div>
-    </form>
+    </form> --}}
     <div class="d-flex flex-wrap justify-content-between align-items-start">
         @forelse ($projects as $project)
         {{-- <li class="list-group-item border-0 mb-3 shadow-sm">
