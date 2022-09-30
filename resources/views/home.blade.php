@@ -7,7 +7,7 @@
   <div class="row d-flex justify-content-center align-items-center">
     <div class="col-12 col-lg-6">
       <h1 class="display-4 text-primary">PROJECTS APP</h1>
-      <p class="lead text-secondary">App desarrollada para listar proyectos. Podras crear, guardar, actualizar y eliminar todos los proyectos que hayas creado, dentro de tu cuenta.</p>
+      <p class="lead text-secondary">App desarrollada para listar proyectos. Podras crear, guardar, actualizar y eliminar todos los proyectos que hayas creado en tu cuenta.</p>
       @guest
       <a class="btn btn-lg w-100 mb-3 btn-primary text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
       <a class="btn btn-lg w-100 mb-3 btn-outline-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
