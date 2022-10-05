@@ -13,13 +13,13 @@
         @else
         <h1 class="display-4 fw-bold mb-0">PROYECTOS</h1>
         @endisset
-        {{-- @can('create', $newProject) --}}
-        @auth
+        @can('create', $newProject)
+        {{-- @auth --}}
         <a class="btn btn-primary text-white" href="{{ route('projects.create') }}">
             Crea un nuevo proyecto
         </a>
-        @endauth
-        {{-- @endcan --}}
+        {{-- @endauth --}}
+        @endcan
     </div>
     <p class="clead text-secondary">
         Una vez registrado e iniciado sesion, aqui podras ir añadiendo tus proyectos. Se iran acumulando en esta lista y desde aqui podras acceder a todos ellos para editarlos o eliminarlos.

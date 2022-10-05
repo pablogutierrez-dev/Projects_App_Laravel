@@ -23,7 +23,7 @@ class ProjectController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-    public function index (Request $request) {
+    public function index (/* Request $request */) {
         
         /* $term = $request->get('term');
         $querys = Project::where('title', 'LIKE', '%'. $term . '%')->get(); 
@@ -38,7 +38,7 @@ class ProjectController extends Controller
     }
     
     public function create ()
-    {
+    {   
         $this->authorize('create', $project = new Project);
         
         return view ('projects.create', [
@@ -73,7 +73,7 @@ class ProjectController extends Controller
         /* Project::create(request()->only('title', 'url', 'description')); */
         
         $project = new Project( $request->validated() );
-        
+
         $this->authorize('create', $project);
         
         $project->image = $request->file('image')->store('images');
@@ -148,6 +148,8 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {   
         $this->authorize('delete', $project);
+
+        Storage::delete($project->image);
         
         $project->delete();
         
