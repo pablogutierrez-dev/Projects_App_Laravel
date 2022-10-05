@@ -25,9 +25,9 @@ class ProjectController extends Controller
     */
     public function index (Request $request) {
         
-        $term = $request->get('term');
-        /* $querys = Project::where('title', 'LIKE', '%'. $term . '%')->get(); */
-        $querys = Project::search($term)->get();
+        /* $term = $request->get('term');
+        $querys = Project::where('title', 'LIKE', '%'. $term . '%')->get(); 
+        $querys = Project::search($term)->get(); */
         
         return view ('projects.index', [
             'newProject' => new Project,
