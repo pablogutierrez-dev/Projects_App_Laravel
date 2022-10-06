@@ -1,64 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projects_App
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- Pagina web con CRUD para poder crear, ver, actualizar o eliminar distintos proyectos.
+- Proyecto realizado en Laravel 9.
 
-## About Laravel
+# Instalacion
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Requisitos previos**
+ Es necesario tener en el sistema operativo composer de manera global.
+ Tener instalado GIT.
+ Contar con un entorno de desarrollo como Xamp, Wamp o Laragon.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+------------
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### 1. Clonar el repositorio del proyecto en Laravel
+*git clone https://github.com/pablogutierrez-dev/Projects_App_Laravel.git*
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### 2. Instalar dependencias del proyecto
+Ingresa desde la terminal a la carpeta de tu proyecto y escribe:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+*composer install*
 
-## Laravel Sponsors
+Este comando instalará todas las librerías que están declaradas para tu proyecto.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+#### 3. Generar archivo .env
+ Escribe en la terminal:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+*cp .env.example .env*
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### 4. Generar Key
+ Escribe en la terminal:
 
-## Code of Conduct
+*php artisan key:generate*
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Esta key nueva se agregará a tu archivo .env
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### 5. Crear base de datos
 
-## License
+Desde la terminal:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+*mysql -u root -p*
+
+*CREATE DATABASE nombreDeTuDBAqui CHARACTER SET utf8 COLLATE utf8_spanish_ci;*
+
+Para salir de la consola de MySQL escribe 'exit'
+
+#### 6. Agregar información de variables globales
+En el archivo .env se guardan todas la variables globales de distintos servicios. que necesita tu proyecto para funcionar sin errores. Agrega los datos de la base de datos que creaste en el punto anterior como es el nombre y contraseña.
+
+
+#### 7. Crear vínculo simbólico
+Sí tu proyecto guarda algún tipo de archivo como imágenes, pdf’s etc., necesitas desde la consola de comandos crear un vínculo o enlace simbólico de la carpeta public a la carpeta storage para que tu sistema pueda tener acceso a los archivos, desde tu terminal teclea:
+
+*php artisan storage:link*
+
+#### 8. Composer dump-autoload
+
+*composer dump-autoload*
+
+#### 9. Correr migraciones
+
+*php artisan migrate*
+
+
+#### 10. Gestion de usuarios
+
+Al registrarte con un usario por defecto tendra el rol de "user". Habra que cambiarlo a "admin" para que pueda crear proyectos, editarlos o borrarlos. Una vez que haya proyectos creados, cualquier nuevo usuario registrado podra acceder a ellos, pero solo para verlos.
+
+# Autor
+
+- https://www.linkedin.com/in/pablo-guti%C3%A9rrez-mu%C3%B1oz-97b558247/
+- www.pablogutierrezdev.com
+
+# Web
+
+- www.projectsapp.pablogutierrezdev.com
+
+# Contacto
+
+- info@pablogutierrezdev.com
